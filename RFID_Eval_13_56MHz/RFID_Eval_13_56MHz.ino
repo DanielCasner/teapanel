@@ -9,16 +9,13 @@
   Based on hardware v13:
   D7 -> RFID RX
   D8 -> RFID TX
-  D9 -> XBee TX
-  D10 -> XBee RX
 
   Note: RFID Reset attached to D13 (aka status LED)
 
   Note: be sure include the SoftwareSerial lib, http://arduiniana.org/libraries/newsoftserial/
 
   Usage: Sketch prints 'Start' and waits for a tag. When a tag is in range, the shield reads the tag,
-  blinks the 'Found' LED and prints the serial number of the tag to the serial port
-  and the XBee port.
+  blinks the 'Found' LED and prints the serial number of the tag to the serial port.
   
   06/04/2013 - Modified for compatibility with Arudino 1.0. Seb Madgwick.
 
@@ -26,7 +23,6 @@
 #include <SoftwareSerial.h>
 
 SoftwareSerial rfid(7, 8);
-SoftwareSerial xbee(10, 9);
 
 //Prototypes
 void check_for_notag(void);
@@ -48,7 +44,6 @@ void setup()
   Serial.println("Start");
 
   // set the data rate for the SoftwareSerial ports
-  xbee.begin(9600);
   rfid.begin(19200);
   delay(10);
   halt();
@@ -104,12 +99,6 @@ void print_serial()
     Serial.print(Str1[6], HEX);
     Serial.print(Str1[5], HEX);
     Serial.println();
-    //print to XBee module
-    xbee.print(Str1[8], HEX);
-    xbee.print(Str1[7], HEX);
-    xbee.print(Str1[6], HEX);
-    xbee.print(Str1[5], HEX);
-    xbee.println();
     delay(100);
     //check_for_notag();
   }
