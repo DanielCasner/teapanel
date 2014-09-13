@@ -38,8 +38,8 @@
 RED (Encoder Red LED)            5 - PWM enabled
 BLU (Encoder Blue LED)           6 - PWM enabled
 GRN (Encoder Green LED)          9 - PWM endabled
-SW (Encoder push button)         7
-   DAT (shift data)              8
+SW (Encoder push button)         A5
+   DAT (shift data)              A4
    CLR (shift clear)             10
    CLK (shift clock)             11
   LATCH (shift latch)            12
@@ -69,14 +69,14 @@ int bPin = 2;  // Encoder B pin, D2 is external interrupt 0
 int redPin = 5;  // Encoder's red LED - D5 is PWM enabled
 int bluPin = 6;  // Encoder's blue LED- D6 is PWM enabled
 int grnPin = 9;  // Encoder's green LED - D9 is PWM enabled
-int swhPin = 7;  // Encoder's switch pin
+int swhPin = A5;  // Encoder's switch pin
 
 // Pin definitions - Shift registers:
 int enPin = 13;  // Shift registers' Output Enable pin
 int latchPin = 12;  // Shift registers' rclk pin
 int clkPin = 11;  // Shift registers' srclk pin
 int clrPin = 10;  // shift registers' srclr pin
-int datPin = 8;  // shift registers' SER pin
+int datPin = A4;  // shift registers' SER pin
 
 // The encoderPosition variable stores the position of the encoder.
 // It's either incremented or decremented in the encoder's 
